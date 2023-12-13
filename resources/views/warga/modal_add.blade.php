@@ -33,8 +33,8 @@
                 </div>
 
                 <div class="form-group mb-3">
-                    <label for="description" class="form-label">Keterangan</label>
-                    <textarea class="form-control" id="description" rows="3" name="description"></textarea>
+                    <label for="alamat" class="form-label">Alamat</label>
+                    <textarea class="form-control" id="alamat" rows="3" name="alamat"></textarea>
                 </div>
             </div>
 

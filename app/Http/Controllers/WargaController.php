@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Validator;
+use App\Models\Lingkungan;
 use App\Models\Warga;
 use Illuminate\Http\Request;
-use App\Models\Lingkungan;
+use Illuminate\Support\Facades\Validator;
 
 class WargaController extends Controller
 {
@@ -88,10 +88,9 @@ class WargaController extends Controller
         }
 
         $validator = Validator::make($request->all(), [
-            'year' => 'required|integer|min:' . (date('Y') - 2) . '|max:' . (date('Y') + 10),
-            'kode_rekening_id' => 'required',
-            'nominal' => 'required|integer|min:4',
-            'description' => 'required',
+            'kode' => 'required',
+            'nama' => 'required',
+            'lingkungan_id' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -112,10 +111,10 @@ class WargaController extends Controller
         }
 
         $now = date('Y-m-d H:i:s');
-        $warga->year = $request->year;
-        $warga->kode_rekening_id = $request->kode_rekening_id;
-        $warga->nominal = $request->nominal;
-        $warga->description = $request->description;
+        $warga->kode = $request->kode;
+        $warga->nama = $request->nama;
+        $warga->lingkungan_id = $request->lingkungan_id;
+        $warga->alamat = $request->alamat;
         $warga->updated_at = $now;
 
         try {

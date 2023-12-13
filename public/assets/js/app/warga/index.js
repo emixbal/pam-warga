@@ -48,10 +48,10 @@ $(document).ready(function () {
                 return
             },
             complete: function (params) {
-                $("#year").val('')
-                $("#kode_rekening_id").val('')
+                $("#nama").val('')
+                $("#lingkungan_id").val('')
                 $("#nominal").val('')
-                $("#description").val('')
+                $("#alamat").val('')
                 $('#modal_add').modal('hide');
                 return
             }
@@ -64,45 +64,28 @@ $(document).ready(function () {
         var warga = JSON.parse(data)
 
         $("#id_edit").val(warga.id)
-        $("#year_edit").val(warga.year)
-        $("#kode_rekening_id_edit").val(warga.kode_rekening_id)
-        $("#nominal_edit").val(warga.nominal.replace(/\.00$/, ''))
-        $("#description_edit").val(warga.description)
-
-        new Cleave('#nominal_edit', {
-            numeral: !0,
-            delimiter: ' ',
-            numeralDecimalScale: 0, // Set decimal scale to zero
-        });
+        $("#nama_edit").val(warga.nama)
+        $("#kode_edit").val(warga.kode)
+        $("#lingkungan_id_edit").val(warga.lingkungan_id)
+        $("#alamat_edit").val(warga.alamat)
 
         $('#modal_edit').modal('show');
     })
 
     $("#modal_edit_save_btn").on("click", function () {
         var id = $("#id_edit").val()
-        var year = $("#year_edit").val()
-        var nominal_txt = $("#nominal_edit").val()
-        var nominal = nominal_txt.replace(/\s/g, '');
-        var kode_rekening_id = $("#kode_rekening_id_edit").val()
-        var description = $("#description_edit").val()
+        var nama = $("#nama_edit").val()
+        var kode = $("#kode_edit").val()
+        var lingkungan_id = $("#lingkungan_id_edit").val()
+        var alamat = $("#alamat_edit").val()
 
-        if (!year) {
+        if (!nama) {
             alert('Tahun harus di isi')
             return
         }
 
-        if (!kode_rekening_id) {
+        if (!lingkungan_id) {
             alert('Kode rekeningin harus di isi')
-            return
-        }
-
-        if (!nominal_txt) {
-            alert('Nominal harus di isi')
-            return
-        }
-
-        if (!description) {
-            alert('Uraian harus di isi')
             return
         }
 
@@ -113,9 +96,9 @@ $(document).ready(function () {
             url: `warga/${id}`,
             type: "PUT",
             data: {
-                year, nominal,
-                kode_rekening_id,
-                description
+                nama, kode,
+                lingkungan_id,
+                alamat
             },
             success: async function (response, textStatus, xhr) {
                 location.reload();
@@ -139,16 +122,10 @@ $(document).ready(function () {
         var warga = JSON.parse(data)
 
         $("#id_delete").val(warga.id)
-        $("#year_delete").val(warga.year)
-        $("#kode_rekening_id_delete").val(warga.kode_rekening.kode)
-        $("#nominal_delete").val(warga.nominal.replace(/\.00$/, ''))
-        $("#description_delete").val(warga.description)
-
-        new Cleave('#nominal_delete', {
-            numeral: !0,
-            delimiter: ' ',
-            numeralDecimalScale: 0, // Set decimal scale to zero
-        });
+        $("#nama_delete").val(warga.nama)
+        $("#kode_delete").val(warga.kode)
+        $("#lingkungan_id_delete").val(warga.lingkungan_id)
+        $("#alamat_delete").val(warga.alamat)
 
         $('#modal_delete').modal('show');
     })
@@ -174,7 +151,7 @@ $(document).ready(function () {
             },
             complete: function (params) {
                 $("#kode").val('')
-                $("#description").val('')
+                $("#alamat").val('')
                 $('#modal_delete').modal('hide');
                 return
             }

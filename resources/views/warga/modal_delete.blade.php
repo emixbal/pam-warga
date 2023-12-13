@@ -11,24 +11,32 @@
             <input type="type" class="form-control" id="id_delete" name="id_delete" hidden>
 
             <div class="modal-body">
-                <div class="form-group">
-                    <label for="year_delete" class="form-label">Tahun</label>
-                    <input type="text" class="form-control" id="year_delete" name="year_delete" disabled>
+                <div class="form-group mb-3">
+                    <label for="lingkungan_id_delete" class="form-label">Lingkungan</label>
+                    <select class="form-select" id="lingkungan_id_delete" name="lingkungan_id_delete" disabled>
+                        <option {{ old('lingkungan_id') == '' ? 'selected' : '' }} value="">Pilih Lingkungan...
+                        </option>
+                        @foreach ($data['lingkungans'] as $lingkungan)
+                            <option value="{{ $lingkungan->id }}"
+                                {{ old('lingkungan') == $lingkungan->id ? 'selected' : '' }}>
+                                {{ $lingkungan->kode }} - {{ $lingkungan->nama }}</option>
+                        @endforeach
+                    </select>
                 </div>
 
-                <div class="form-group">
-                    <label for="kode_rekening_id_delete" class="form-label">Kode Rekening</label>
-                    <input type="text" class="form-control" id="kode_rekening_id_delete" name="kode_rekening_id_delete" disabled>
+                <div class="form-group mb-3">
+                    <label for="kode_delete" class="form-label">Kode</label>
+                    <input type="text" class="form-control" id="kode_delete" name="kode_delete" disabled>
                 </div>
 
-                <div class="form-group">
-                    <label for="nominal_delete" class="form-label">Nominal (Rp)</label>
-                    <input type="text" class="form-control" id="nominal_delete" name="nominal_delete" disabled>
+                <div class="form-group mb-3">
+                    <label for="nama_delete" class="form-label">Nama</label>
+                    <input type="text" class="form-control" id="nama_delete" name="nama_delete" disabled>
                 </div>
 
-                <div class="form-group">
-                    <label for="description_delete" class="form-label">Uraian</label>
-                    <textarea class="form-control" id="description_delete" rows="3" name="description_delete" disabled></textarea>
+                <div class="form-group mb-3">
+                    <label for="alamat_delete" class="form-label">Alamat</label>
+                    <textarea class="form-control" id="alamat_delete" rows="3" name="alamat_delete" disabled></textarea>
                 </div>
             </div>
 
