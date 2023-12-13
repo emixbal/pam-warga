@@ -10,7 +10,7 @@
         <div class="collapse menu-dropdown" id="sidebarMasterData">
             <ul class="nav nav-sm flex-column">
                 <li class="nav-item">
-                    <a href="{{ route('partai.index') }}" class="nav-link" data-key="t-partai">
+                    <a href="{{ route('home.index') }}" class="nav-link" data-key="t-partai">
                         Partai
                     </a>
                 </li>
@@ -31,11 +31,11 @@
         <div class="collapse menu-dropdown" id="sidebarDewan">
             <ul class="nav nav-sm flex-column">
                 <li class="nav-item">
-                    <a href="{{ route('dewan.index') }}" class="nav-link" data-key="t-dewan"> Semua Dewan
+                    <a href="{{ route('home.index') }}" class="nav-link" data-key="t-dewan"> Semua Dewan
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('dewan.create') }}" class="nav-link" data-key="t-dewan-add"> Tambah Data </a>
+                    <a href="{{ route('home.index') }}" class="nav-link" data-key="t-dewan-add"> Tambah Data </a>
                 </li>
             </ul>
         </div>
@@ -49,7 +49,7 @@
         <div class="collapse menu-dropdown" id="sidebarAnggaran">
             <ul class="nav nav-sm flex-column">
                 <li class="nav-item">
-                    <a href="{{ route('anggaran.index') }}" class="nav-link" data-key="t-dewan"> Semua Anggaran
+                    <a href="{{ route('home.index') }}" class="nav-link" data-key="t-dewan"> Semua Anggaran
                     </a>
                 </li>
             </ul>
