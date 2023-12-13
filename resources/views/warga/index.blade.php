@@ -29,7 +29,7 @@
                         <tbody>
                             @foreach ($data['wargas'] as $warga)
                                 <tr>
-                                    <td>{{ $warga->lingkungan->kode }}</td>
+                                    <td>{{ $warga->lingkungan->kode }} - {{ $warga->lingkungan->nama }}</td>
                                     <td>{{ $warga->kode }}</td>
                                     <td>{{ $warga->nama }}</td>
                                     <td>{{ $warga->alamat }}</td>
