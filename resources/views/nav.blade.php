@@ -10,13 +10,19 @@
         <div class="collapse menu-dropdown" id="sidebarMasterData">
             <ul class="nav nav-sm flex-column">
                 <li class="nav-item">
-                    <a href="{{ route('home.index') }}" class="nav-link" data-key="t-partai">
-                        Partai
+                    <a href="{{ route('kode_rekening.index') }}" class="nav-link" data-key="t-kode-rek">
+                        Kode Rekening
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('lingkungan.index') }}" class="nav-link" data-key="t-lingkungan">
+                        Lingkungan
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('kode_rekening.index') }}" class="nav-link" data-key="t-partai">
-                        Kode Rekening
+                    <a href="{{ route('warga.index') }}" class="nav-link" data-key="t-warga">
+                        Warga
                     </a>
                 </li>
             </ul>

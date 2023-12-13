@@ -28,6 +28,20 @@ Route::group(['prefix' => 'kode-rekening', 'middleware' => ['auth']], function (
     Route::delete('/{id}', [App\Http\Controllers\KodeRekeningController::class, 'delete'])->name('kode_rekening.delete');
 });
 
+Route::group(['prefix' => 'lingkungan', 'middleware' => ['auth']], function () {
+    Route::get('/', [App\Http\Controllers\LingkunganController::class, 'index'])->name('lingkungan.index');
+    Route::post('/', [App\Http\Controllers\LingkunganController::class, 'store'])->name('lingkungan.store');
+    Route::put('/{id}', [App\Http\Controllers\LingkunganController::class, 'update'])->name('lingkungan.update');
+    Route::delete('/{id}', [App\Http\Controllers\LingkunganController::class, 'delete'])->name('lingkungan.delete');
+});
+
+Route::group(['prefix' => 'warga', 'middleware' => ['auth']], function () {
+    Route::get('/', [App\Http\Controllers\WargaController::class, 'index'])->name('warga.index');
+    Route::post('/', [App\Http\Controllers\WargaController::class, 'store'])->name('warga.store');
+    Route::put('/{id}', [App\Http\Controllers\WargaController::class, 'update'])->name('warga.update');
+    Route::delete('/{id}', [App\Http\Controllers\WargaController::class, 'delete'])->name('warga.delete');
+});
+
 Route::group(['prefix' => '/', 'middleware' => ['auth']], function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home.index');
 });
