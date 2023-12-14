@@ -47,6 +47,13 @@ Route::group(['prefix' => 'warga', 'middleware' => ['auth']], function () {
     Route::delete('/{id}', [App\Http\Controllers\WargaController::class, 'delete'])->name('warga.delete');
 });
 
+Route::group(['prefix' => 'tarif', 'middleware' => ['auth']], function () {
+    Route::get('/', [App\Http\Controllers\TarifController::class, 'index'])->name('tarif.index');
+    Route::post('/', [App\Http\Controllers\TarifController::class, 'store'])->name('tarif.store');
+    Route::put('/{id}', [App\Http\Controllers\TarifController::class, 'update'])->name('tarif.update');
+    Route::delete('/{id}', [App\Http\Controllers\TarifController::class, 'delete'])->name('tarif.delete');
+});
+
 Route::group(['prefix' => 'period', 'middleware' => ['auth']], function () {
     Route::get('/', [App\Http\Controllers\PeriodController::class, 'index'])->name('period.index');
     Route::post('/', [App\Http\Controllers\PeriodController::class, 'store'])->name('period.store');
