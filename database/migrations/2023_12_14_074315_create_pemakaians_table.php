@@ -17,7 +17,12 @@ return new class extends Migration
             $table->foreign('warga_id')->references('id')->on('wargas');
             $table->bigInteger('period_id')->unsigned();
             $table->foreign('period_id')->references('id')->on('periods');
-            $table->integer('total_pemakaian');
+            $table->integer('meteran_pemakaian');
+            $table->integer('total');
+            $table->integer('nominal_bayar');
+            $table->string('foto1', 100)->unique();
+            $table->string('foto2', 100)->unique();
+            $table->boolean('sudah_bayar')->default(false);
             $table->timestamps();
             $table->softDeletes();
         });
