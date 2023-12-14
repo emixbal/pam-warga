@@ -3,24 +3,30 @@
 namespace App\Http\Controllers;
 
 use App\Models\Period;
+use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class PeriodController extends Controller
 {
+    public $parent_title = "Periode";
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
-    }
+        $data = Period::whereNull("deleted_at")->get();
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        $pass = [
+            "page" => [
+                "parent_title" => $this->parent_title,
+                "title" => "Period",
+            ],
+            "data" => $data,
+            "date" => date('Y-m-01'),
+        ];
+
+        return view("period/index", $pass);
     }
 
     /**
@@ -28,38 +34,81 @@ class PeriodController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|min:2',
+            'date' => 'required|min:2',
+        ]);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Period $period)
-    {
-        //
-    }
+        if ($validator->fails()) {
+            return response()->json([
+                "status" => "nok",
+                "message" => $validator->messages(),
+                "data" => null,
+            ], 400);
+        }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Period $period)
-    {
-        //
-    }
+        $period = new Period;
+        $period->name = $request->name;
+        $period->date = $request->date;
+        $period->user_id = Auth::user()->id;
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Period $period)
-    {
-        //
+        try {
+            $period->save();
+        } catch (\Exception $e) {
+            return response()->json([
+                "status" => "nok",
+                "message" => $e,
+                "data" => null,
+            ], 500);
+        }
+
+        return response()->json([
+            "status" => "ok",
+            "message" => "sukses",
+            "data" => $period,
+        ], 200);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Period $period)
+    public function delete($id)
     {
-        //
+        if (!is_numeric($id)) {
+            return response()->json([
+                "status" => "nok",
+                "message" => "Invalid id type",
+                "data" => null,
+            ], 400);
+        }
+
+        $period = Period::where("id", $id)->where("deleted_at", null)->first();
+
+        if (!$period) {
+            return response()->json([
+                "status" => "nok",
+                "message" => "not found",
+                "data" => null,
+            ], 400);
+        }
+
+        $now = date('Y-m-d H:i:s');
+        $period->deleted_at = $now;
+
+        try {
+            $period->save();
+        } catch (\Exception $e) {
+            return response()->json([
+                "status" => "nok",
+                "message" => "Something went wrong",
+                "data" => null,
+            ], 500);
+        }
+
+        return response()->json([
+            "status" => "ok",
+            "message" => "success",
+            "data" => null,
+        ], 200);
     }
 }

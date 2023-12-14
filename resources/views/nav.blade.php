@@ -30,6 +30,22 @@
     </li>
 
     <li class="nav-item">
+        <a class="nav-link menu-link" href="#sidebarPeriodeBayar" data-bs-toggle="collapse" role="button" aria-expanded="false"
+            aria-controls="sidebarPeriodeBayar">
+            <i class="ri-wallet-line "></i> <span data-key="t-apps">Periode Bayar</span>
+        </a>
+        <div class="collapse menu-dropdown" id="sidebarPeriodeBayar">
+            <ul class="nav nav-sm flex-column">
+                <li class="nav-item">
+                    <a href="{{ route('period.index') }}" class="nav-link" data-key="t-period"> Semua Periode Bayar
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </li>
+
+
+    <li class="nav-item">
         <a class="nav-link menu-link" href="#sidebarDewan" data-bs-toggle="collapse" role="button" aria-expanded="false"
             aria-controls="sidebarDewan">
             <i class="ri-shield-user-line"></i> <span data-key="t-apps">Dewan</span>

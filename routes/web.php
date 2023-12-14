@@ -14,8 +14,13 @@ use Illuminate\Support\Facades\Route;
  */
 
 // Auth::routes();
-Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 
+Route::group(['prefix' => '/', 'middleware' => ['auth']], function () {
+    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home.index');
+});
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware(['auth']);
+
+Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 Route::group(['prefix' => 'login'], function () {
     Route::get('/', [App\Http\Controllers\AuthController::class, 'login'])->name('login');
     Route::post('/process', [App\Http\Controllers\AuthController::class, 'login_process'])->name('login.process');
@@ -42,10 +47,12 @@ Route::group(['prefix' => 'warga', 'middleware' => ['auth']], function () {
     Route::delete('/{id}', [App\Http\Controllers\WargaController::class, 'delete'])->name('warga.delete');
 });
 
-Route::group(['prefix' => '/', 'middleware' => ['auth']], function () {
-    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home.index');
+Route::group(['prefix' => 'period', 'middleware' => ['auth']], function () {
+    Route::get('/', [App\Http\Controllers\PeriodController::class, 'index'])->name('period.index');
+    Route::post('/', [App\Http\Controllers\PeriodController::class, 'store'])->name('period.store');
+    Route::put('/{id}', [App\Http\Controllers\PeriodController::class, 'update'])->name('period.update');
+    Route::delete('/{id}', [App\Http\Controllers\PeriodController::class, 'delete'])->name('period.delete');
 });
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware(['auth']);
 
 Route::get('/file/{dir}/{filename}', function ($dir, $filename) {
     $path = storage_path("app/public/$dir/" . $filename);
@@ -54,4 +61,3 @@ Route::get('/file/{dir}/{filename}', function ($dir, $filename) {
     }
     return response()->file($path);
 }, )->name('file')->middleware(['auth']);
-
