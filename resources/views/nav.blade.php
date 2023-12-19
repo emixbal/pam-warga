@@ -50,34 +50,38 @@
         </div>
     </li>
 
-
     <li class="nav-item">
-        <a class="nav-link menu-link" href="#sidebarDewan" data-bs-toggle="collapse" role="button" aria-expanded="false"
-            aria-controls="sidebarDewan">
-            <i class="ri-shield-user-line"></i> <span data-key="t-apps">Dewan</span>
+        <a class="nav-link menu-link" href="#sidebarTagihan" data-bs-toggle="collapse" role="button" aria-expanded="false"
+            aria-controls="sidebarTagihan">
+            <i class="ri-bar-chart-grouped-line"></i> <span data-key="t-apps">Pemakaian/Tagihan</span>
         </a>
-        <div class="collapse menu-dropdown" id="sidebarDewan">
+        <div class="collapse menu-dropdown" id="sidebarTagihan">
             <ul class="nav nav-sm flex-column">
                 <li class="nav-item">
-                    <a href="{{ route('home.index') }}" class="nav-link" data-key="t-dewan"> Semua Dewan
+                    <a href="{{ route('pemakaian.index') }}" class="nav-link" data-key="t-period"> Tampilkan Data
                     </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('home.index') }}" class="nav-link" data-key="t-dewan-add"> Tambah Data </a>
                 </li>
             </ul>
         </div>
     </li>
 
     <li class="nav-item">
-        <a class="nav-link menu-link" href="#sidebarAnggaran" data-bs-toggle="collapse" role="button" aria-expanded="false"
-            aria-controls="sidebarAnggaran">
-            <i class="ri-wallet-line "></i> <span data-key="t-apps">Anngaran</span>
+        <a class="nav-link menu-link" href="#sidebarPembayaran" data-bs-toggle="collapse" role="button" aria-expanded="false"
+            aria-controls="sidebarPembayaran">
+            <i class="ri-money-dollar-box-line"></i> <span data-key="t-apps">Pembayaran</span>
         </a>
-        <div class="collapse menu-dropdown" id="sidebarAnggaran">
+        <div class="collapse menu-dropdown" id="sidebarPembayaran">
             <ul class="nav nav-sm flex-column">
                 <li class="nav-item">
-                    <a href="{{ route('home.index') }}" class="nav-link" data-key="t-dewan"> Semua Anggaran
+                    <a href="{{ route('pemakaian.index') }}" class="nav-link" data-key="t-period"> Isi Saldo
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('pemakaian.index') }}" class="nav-link" data-key="t-period"> Tampilkan Data
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('pemakaian.index') }}" class="nav-link" data-key="t-period"> Rekap
                     </a>
                 </li>
             </ul>

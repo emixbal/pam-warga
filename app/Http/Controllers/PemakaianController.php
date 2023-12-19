@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pemakaian;
+use App\Models\Period;
 use Illuminate\Http\Request;
 
 class PemakaianController extends Controller
@@ -13,6 +14,7 @@ class PemakaianController extends Controller
      */
     public function index()
     {
+        $periods = Period::whereNull("deleted_at")->get();
 
         $query = Pemakaian::leftJoin('wargas', 'wargas.id', '=', 'pemakaians.warga_id')
             ->leftJoin('lingkungans', 'lingkungans.id', '=', 'wargas.lingkungan_id')
@@ -34,6 +36,7 @@ class PemakaianController extends Controller
                 "title" => "Pemakaian",
             ],
             "data" => [
+                'periods' => $periods,
                 'pemakaians' => $pemakaians,
             ],
         ];

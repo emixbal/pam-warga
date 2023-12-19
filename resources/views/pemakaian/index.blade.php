@@ -3,6 +3,24 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
+                <div class="card-body">
+                    <p>Tampil Berdasar Periode</p>
+                    <div class="row">
+                        <div class="form-group col-sm-2">
+                            <select class="form-select form-select-sm" aria-label="Default select example" id="periode"
+                                name="periode">
+                                @php($periods = $data['periods'])
+                                @foreach ($periods as $period)
+                                    <option value={{ $period->id }}>{{ $period->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <button id="set_year_btn" class="btn btn-primary col-sm-1 btn-sm">Cari</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
                 <div class="card-header">
                     <div class="row">
                         <div class="col-lg-8">
