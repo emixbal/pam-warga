@@ -66,16 +66,9 @@
                                             <ul class="dropdown-menu dropdown-menu-end">
                                                 <li>
                                                     <button data="{{ json_encode($pemakaian) }}"
-                                                        class="dropdown-item edit-item-btn" id="modal_edit_btn"><i
+                                                        class="dropdown-item bayar-pemakaian-btn" id="modal_bayar_btn"><i
                                                             class="ri-pencil-fill align-bottom me-2 text-muted"></i>
-                                                        Edit
-                                                    </button>
-                                                </li>
-                                                <li>
-                                                    <button data="{{ json_encode($pemakaian) }}"
-                                                        class="dropdown-item remove-item-btn">
-                                                        <i class="ri-delete-bin-fill align-bottom me-2 text-muted"></i>
-                                                        Delete
+                                                        Bayar
                                                     </button>
                                                 </li>
                                             </ul>
@@ -90,7 +83,7 @@
         </div>
     </div>
 
-    {{-- @include('pemakaian.modal_add') --}}
+    @include('pemakaian.modal_bayar')
 
 @endsection
 

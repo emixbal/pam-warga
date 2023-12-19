@@ -1,23 +1,12 @@
 new DataTable('#pemakaian');
 $(document).ready(function () {
-    $("#modal_add_btn").on("click", function () {
-        $('#modal_add').modal('show');
+    $(".bayar-pemakaian-btn").on("click", function () {
+        $('#modal_bayar').modal('show');
     })
 
     $("#modal_add_save_btn").on("click", function () {
-        var nama = $("#nama").val()
-        var kode = $("#kode").val()
-        var description = $("#description").val()
-
-        if (!nama) {
-            alert("Nama harus diisi")
-            return
-        }
-
-        if (!kode) {
-            alert("Kode harus diisi")
-            return
-        }
+        var pemakaian_id = $("#pemakaian_id").val()
+        var method_id = $("#method_id").val()
 
         $.ajax({
             headers: {
@@ -26,9 +15,8 @@ $(document).ready(function () {
             url: `pemakaian`,
             type: "POST",
             data: {
-                nama,
-                kode,
-                description
+                method_id,
+                pemakaian_id,
             },
             success: async function (response, textStatus, xhr) {
                 location.reload();
@@ -42,7 +30,7 @@ $(document).ready(function () {
             complete: function (params) {
                 $("#kode").val('')
                 $("#description").val('')
-                $('#modal_add').modal('hide');
+                $('#modal_bayar').modal('hide');
                 return
             }
         });
