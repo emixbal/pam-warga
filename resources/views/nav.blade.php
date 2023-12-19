@@ -73,7 +73,7 @@
         <div class="collapse menu-dropdown" id="sidebarPembayaran">
             <ul class="nav nav-sm flex-column">
                 <li class="nav-item">
-                    <a href="{{ route('pemakaian.index') }}" class="nav-link" data-key="t-period"> Isi Saldo
+                    <a href="{{ route('pemakaian.index') }}" class="nav-link" data-key="t-period"> Isi Deposit
                     </a>
                 </li>
                 <li class="nav-item">
@@ -81,7 +81,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('pembayaran.index') }}" class="nav-link" data-key="t-period"> Rekap
+                    <a href="{{ route('pembayaran.recap') }}" class="nav-link" data-key="t-period"> Rekap
                     </a>
                 </li>
             </ul>

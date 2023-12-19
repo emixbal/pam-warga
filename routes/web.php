@@ -70,9 +70,7 @@ Route::group(['prefix' => 'pemakaian', 'middleware' => ['auth']], function () {
 
 Route::group(['prefix' => 'pembayaran', 'middleware' => ['auth']], function () {
     Route::get('/', [App\Http\Controllers\PembayaranController::class, 'index'])->name('pembayaran.index');
-    Route::post('/', [App\Http\Controllers\PembayaranController::class, 'store'])->name('pembayaran.store');
-    Route::put('/{id}', [App\Http\Controllers\PembayaranController::class, 'update'])->name('pembayaran.update');
-    Route::delete('/{id}', [App\Http\Controllers\PembayaranController::class, 'delete'])->name('pembayaran.delete');
+    Route::get('/recap', [App\Http\Controllers\PembayaranController::class, 'recap'])->name('pembayaran.recap');
 });
 
 Route::get('/file/{dir}/{filename}', function ($dir, $filename) {

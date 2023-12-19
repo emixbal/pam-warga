@@ -85,7 +85,7 @@
                                 <td>Ak20</td>
                                 <td>Alex</td>
                                 <td style="text-align: right">70.000</td>
-                                <td style="text-align: center">Saldo</td>
+                                <td style="text-align: center">Deposit</td>
                             </tr>
                             <tr>
                                 <td>Lingkungan 2</td>

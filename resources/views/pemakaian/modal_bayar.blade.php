@@ -3,7 +3,7 @@
     $methods = [
         (object) [
             'id' => 1,
-            'name' => 'saldo',
+            'name' => 'deposit',
         ],
         (object) [
             'id' => 1,

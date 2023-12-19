@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Saldo;
+use App\Models\Deposit;
 use Illuminate\Http\Request;
 
-class SaldoController extends Controller
+class DepositController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class SaldoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Saldo $saldo)
+    public function show(Deposit $deposit)
     {
         //
     }
@@ -42,7 +42,7 @@ class SaldoController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Saldo $saldo)
+    public function edit(Deposit $deposit)
     {
         //
     }
@@ -50,7 +50,7 @@ class SaldoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Saldo $saldo)
+    public function update(Request $request, Deposit $deposit)
     {
         //
     }
@@ -58,7 +58,7 @@ class SaldoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Saldo $saldo)
+    public function destroy(Deposit $deposit)
     {
         //
     }
