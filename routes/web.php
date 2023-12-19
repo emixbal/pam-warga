@@ -68,6 +68,13 @@ Route::group(['prefix' => 'pemakaian', 'middleware' => ['auth']], function () {
     Route::delete('/{id}', [App\Http\Controllers\PemakaianController::class, 'delete'])->name('pemakaian.delete');
 });
 
+Route::group(['prefix' => 'pembayaran', 'middleware' => ['auth']], function () {
+    Route::get('/', [App\Http\Controllers\PembayaranController::class, 'index'])->name('pembayaran.index');
+    Route::post('/', [App\Http\Controllers\PembayaranController::class, 'store'])->name('pembayaran.store');
+    Route::put('/{id}', [App\Http\Controllers\PembayaranController::class, 'update'])->name('pembayaran.update');
+    Route::delete('/{id}', [App\Http\Controllers\PembayaranController::class, 'delete'])->name('pembayaran.delete');
+});
+
 Route::get('/file/{dir}/{filename}', function ($dir, $filename) {
     $path = storage_path("app/public/$dir/" . $filename);
     if (!file_exists($path)) {

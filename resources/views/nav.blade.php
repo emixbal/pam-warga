@@ -77,11 +77,11 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('pemakaian.index') }}" class="nav-link" data-key="t-period"> Tampilkan Data
+                    <a href="{{ route('pembayaran.index') }}" class="nav-link" data-key="t-period"> Tampilkan Data
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('pemakaian.index') }}" class="nav-link" data-key="t-period"> Rekap
+                    <a href="{{ route('pembayaran.index') }}" class="nav-link" data-key="t-period"> Rekap
                     </a>
                 </li>
             </ul>
