@@ -49,7 +49,13 @@ class PemakaianController extends Controller
      */
     public function create()
     {
-        //
+        $pass = [
+            "page" => [
+                "parent_title" => $this->parent_title,
+                "title" => "Ambil Data",
+            ]
+        ];
+        return view("pemakaian/add", $pass);
     }
 
     /**

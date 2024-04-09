@@ -63,6 +63,7 @@ Route::group(['prefix' => 'period', 'middleware' => ['auth']], function () {
 
 Route::group(['prefix' => 'pemakaian', 'middleware' => ['auth']], function () {
     Route::get('/', [App\Http\Controllers\PemakaianController::class, 'index'])->name('pemakaian.index');
+    Route::get('/add', [App\Http\Controllers\PemakaianController::class, 'create'])->name('pemakaian.create');
     Route::post('/', [App\Http\Controllers\PemakaianController::class, 'store'])->name('pemakaian.store');
     Route::put('/{id}', [App\Http\Controllers\PemakaianController::class, 'update'])->name('pemakaian.update');
     Route::delete('/{id}', [App\Http\Controllers\PemakaianController::class, 'delete'])->name('pemakaian.delete');
